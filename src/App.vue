@@ -3,8 +3,8 @@
   <SearchBar placeholder="scegli il tuo film preferito" @search="startSearch"/>
   <div>
     <ul class=" text-white mt-5 d-flex flex-wrap">
-      <ProductionCard class="col-3" v-for="movie in movies" :key="movie.id" :production="movie"/>
-      <ProductionCard class="col-3" v-for="serie in series" :key="serie.id" :production="serie"/>
+      <productionCard class="col-lg-3 col-md-6 col-sm-12" v-for="movie in movies" :key="movie.id" :production="movie"/>
+      <productionCard class="col-lg-3 col-md-6 col-sm-12" v-for="serie in series" :key="serie.id" :production="serie"/>
     </ul>
   </div>
 </div>
@@ -15,12 +15,12 @@
 import axios from 'axios';
 
 import SearchBar from "./components/SearchBar.vue";
-import ProductionCard from './components/productionCard.vue';
+import productionCard from './components/productionCard.vue';
 export default{
   name:'App',
   components:{
     SearchBar,
-    ProductionCard
+    productionCard
   },
   data(){
       return{

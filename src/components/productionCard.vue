@@ -1,9 +1,9 @@
 <template>
         <li class="position-relative h-350 overflow-hidden ps-3 mb-3">
-            <img class="img-fluid" :src="`${baseMovies}${this.production.poster_path}`" 
+            <img class="img-fluid" :src="`${baseMovies}${this.production.poster_path}` || `${errorPic}`" 
          :alt="production.title || production.name" />
        
- <span class="ms-3 p-3 active" >
+        <span class="ms-3 p-3 active" >
             <li><span>Titolo: </span>{{ production.title || production.name }}</li>
             <li><span>Titolo Originale: </span>{{ production.original_title || production.original_name }}</li>
             <li><span>Lingua: </span>
@@ -26,7 +26,7 @@ export default{
     data(){
         return{
              baseMovies:'https://image.tmdb.org/t/p/w342',
-             hover: false 
+             errorPic :'https://www.informatique-mania.com/wp-content/uploads/2020/12/Netflix-error-U7353-5101.jpg'
         }
     },
     props:{
@@ -62,6 +62,7 @@ img.language{
     color:goldenrod;
 }
 .active{
+    cursor:pointer;
     position:absolute;
     top:0;
     left:0;
