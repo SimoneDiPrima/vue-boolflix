@@ -1,7 +1,7 @@
 <template>
 <div class="container">
   <SearchBar placeholder="scegli il tuo film preferito" @search="startSearch"/>
-  <div :v-show="!term" class="text-danger">Che cosa vuoi vedere oggi?</div>
+  <div v-show="!(this.term ===' ') " class="subtitlePage fw-bolder fst-italic">Everytime Everywhere only with you &hearts;</div>
     <ul class=" text-white mt-5 d-flex flex-wrap" >
       <productionCard id="Movies" title="Movies" class="col-lg-3 col-md-6 col-sm-12" v-for="movie in movies" :key="movie.id" :production="movie"/>
       <productionCard id="Series" title="Series" class="col-lg-3 col-md-6 col-sm-12" v-for="serie in series" :key="serie.id" :production="serie"/>
@@ -65,5 +65,8 @@ export default{
 
 <style lang="scss">
 @import './assets/scss/style.scss';
+.subtitlePage{
+  color:$titlePage_color;
+}
 
 </style>

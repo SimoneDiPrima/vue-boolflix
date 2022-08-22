@@ -3,7 +3,7 @@
   <h1 class="fw-bold">Boolflix</h1>
   <div>
     <input type="text" class="me-3"  placeholder = "cerca il tuo film preferito" v-model="term" @keyup="emitSearch">
-    <button class="btn btn-danger fw-bold" @click="emitSearch" type="button">Cerca</button>
+    <button class="text-white mainButton rounded-pill fw-semibold" @click="emitSearch" type="button">Cerca</button>
   </div>
 </header>
 </template>
@@ -24,3 +24,10 @@ export default{
 
 }
 </script>
+<style scoped lang="scss">
+@import '../assets/scss/style.scss';
+.mainButton{
+  background-color : $titlePage_color;
+
+}
+</style>
