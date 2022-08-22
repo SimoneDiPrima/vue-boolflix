@@ -2,7 +2,8 @@
 <div class="container">
   <SearchBar placeholder="scegli il tuo film preferito" @search="startSearch"/>
   <div>
-    <ul class=" text-white mt-5 d-flex flex-wrap">
+    <h1 v-if="title">che cosa vuoi vedere stasera?</h1>
+    <ul class=" text-white mt-5 d-flex flex-wrap" v-else>
       <productionCard class="col-lg-3 col-md-6 col-sm-12" v-for="movie in movies" :key="movie.id" :production="movie"/>
       <productionCard class="col-lg-3 col-md-6 col-sm-12" v-for="serie in series" :key="serie.id" :production="serie"/>
     </ul>
@@ -31,6 +32,7 @@ export default{
             baseUri:'https://api.themoviedb.org/3',
             key:'bf0f896563566d6ee072f696caf75297'
           }, 
+          title : true
         }
     },
     
