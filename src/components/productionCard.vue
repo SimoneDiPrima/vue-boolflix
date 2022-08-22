@@ -4,11 +4,11 @@
          :alt="production.title || production.name" />
        
         <span class="ms-3 p-3 active" >
-            <li><span>Titolo: </span>{{ production.title || production.name }}</li>
-            <li><span>Titolo Originale: </span>{{ production.original_title || production.original_name }}</li>
+            <li><span>Titolo: </span><strong class="text-uppercase">{{ production.title || production.name }}</strong></li>
+            <li><span>Titolo Originale: </span> <strong class="text-uppercase">{{ production.original_title || production.original_name }}</strong></li>
             <li><span>Lingua: </span>
                 <img class="language " v-if="hasFlag" :src="flagSrc" :alt="production.original_language">
-                <p v-else>{{production.original_language}}</p>
+                <p v-else><strong></strong>{{production.original_language}}</p>
             </li>
             <li><span>Descrizione: </span>   {{ production.overview }}</li>
             <li>
