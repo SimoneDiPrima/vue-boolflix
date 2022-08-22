@@ -1,8 +1,9 @@
 <template>
     
         <li class="position-relative h-350 overflow-hidden ps-3 mb-3">
-            <img class="img-fluid" :src="`${baseMovies}${this.production.poster_path}` || `${errorPic}`" 
+            <img v-if="this.production.poster_path" class="img-fluid" :src="`${coverPoster}`" 
          :alt="production.title || production.name" />
+            <img :src="`${coverPoster}`" alt="Coming Soon" v-else>
        
             <span class="ms-3 p-3 active" >
                 <li><span>Titolo: </span><strong class="text-uppercase">{{ production.title || production.name }}</strong></li>
@@ -27,7 +28,8 @@ export default{
     data(){
         return{
              baseMovies:'https://image.tmdb.org/t/p/w342',
-             errorPic :'https://www.informatique-mania.com/wp-content/uploads/2020/12/Netflix-error-U7353-5101.jpg',
+             placeholderPic :"./assets/placePic.png.png",
+
              voteAverage : this.production.vote_average/2
         }
     },
@@ -36,6 +38,11 @@ export default{
         title :String
     },
     computed:{
+        coverPoster(){
+            if(!this.production.poster_path) return this.placeholderPic;
+            const cover = this.baseMovies + this.production.poster_path
+            return cover;
+        },
         hasFlag(){
             const flags = ['it','en'];
             return flags.includes(this.production.original_language);

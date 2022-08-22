@@ -2,9 +2,8 @@
 <div class="container">
   <SearchBar placeholder="scegli il tuo film preferito" @search="startSearch"/>
   <div>
-    <h1 v-if="title">che cosa vuoi vedere stasera?</h1>
-    <ul class=" text-white mt-5 d-flex flex-wrap" v-else>
-      <productionCard class="col-lg-3 col-md-6 col-sm-12" v-for="movie in movies" :key="movie.id" :production="movie"/>
+    <ul class=" text-white mt-5 d-flex flex-wrap" >
+      <productionCard name="movies" class="col-lg-3 col-md-6 col-sm-12" v-for="movie in movies" :key="movie.id" :production="movie"/>
       <productionCard class="col-lg-3 col-md-6 col-sm-12" v-for="serie in series" :key="serie.id" :production="serie"/>
     </ul>
   </div>
