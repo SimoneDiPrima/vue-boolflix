@@ -4,7 +4,8 @@
         <li class="position-relative h-350 overflow-hidden ps-3 mb-3">
             <img v-if="production.poster_path" class="img-fluid" :src="`${coverPoster}`" 
          :alt="production.title || production.name" />
-            <img v-else :src="'${placeholderPic}'" alt="Coming Soon">
+            <img v-else :src="placeholderSrc" class="wh-100 p-3" alt="Coming Soon">
+            <figcaption class="h5 text-warning mt-2 text-center fst-italic">Coming Soon</figcaption>
        
             <span class="ms-3 p-3 active" >
                 <li><span>Titolo: </span><strong class="text-uppercase">{{ production.title || production.name }}</strong></li>
@@ -29,7 +30,7 @@ export default{
     data(){
         return{
              baseMovies:'https://image.tmdb.org/t/p/w342',
-             placeholderPic :"../assets/placePic.png.png",
+             placeholderPic :"../assets/logo.png",
 
              voteAverage : this.production.vote_average/2
         }
@@ -52,6 +53,9 @@ export default{
             
                 return require(`../assets/flags/${this.production.original_language}.png`)
             
+        },
+        placeholderSrc(){
+              return require(`../assets/placePic.png.png`)
         },
        
         setStar(){
@@ -83,7 +87,10 @@ img.language{
    visibility:hidden;
    
 }
-
+.wh-100{
+    max-width:100%;
+    max-height:100%;
+}
 
 .h-350{
     height:350px;
