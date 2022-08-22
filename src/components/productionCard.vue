@@ -26,7 +26,8 @@ export default{
     data(){
         return{
              baseMovies:'https://image.tmdb.org/t/p/w342',
-             errorPic :'https://www.informatique-mania.com/wp-content/uploads/2020/12/Netflix-error-U7353-5101.jpg'
+             errorPic :'https://www.informatique-mania.com/wp-content/uploads/2020/12/Netflix-error-U7353-5101.jpg',
+             voteAverage : this.production.vote_average/2
         }
     },
     props:{
@@ -42,12 +43,9 @@ export default{
                 return require(`../assets/flags/${this.production.original_language}.png`)
             
         },
-        voteAverage(){
-            let voteAverage = this.production.vote_average/10*5;
-            return voteAverage;
-        },
+       
         setStar(){
-            let stars = Math.floor(this.voteAverage);
+            let stars = Math.ceil(this.voteAverage);
             return stars;
         }
     }
