@@ -1,9 +1,10 @@
 <template>
-    
+    <section :id="id">
+        <h2 class="text-center text-success title" :title="title">{{title}}</h2>
         <li class="position-relative h-350 overflow-hidden ps-3 mb-3">
-            <img v-if="this.production.poster_path" class="img-fluid" :src="`${coverPoster}`" 
+            <img v-if="production.poster_path" class="img-fluid" :src="`${coverPoster}`" 
          :alt="production.title || production.name" />
-            <img :src="`${coverPoster}`" alt="Coming Soon" v-else>
+            <img v-else :src="'${placeholderPic}'" alt="Coming Soon">
        
             <span class="ms-3 p-3 active" >
                 <li><span>Titolo: </span><strong class="text-uppercase">{{ production.title || production.name }}</strong></li>
@@ -19,7 +20,7 @@
             </span> 
 
         </li>  
-   
+  </section>
 </template>
 <script>
 
@@ -28,18 +29,18 @@ export default{
     data(){
         return{
              baseMovies:'https://image.tmdb.org/t/p/w342',
-             placeholderPic :"./assets/placePic.png.png",
+             placeholderPic :"../assets/placePic.png.png",
 
              voteAverage : this.production.vote_average/2
         }
     },
     props:{
         production:Object , 
+        id:String,
         title :String
     },
     computed:{
         coverPoster(){
-            if(!this.production.poster_path) return this.placeholderPic;
             const cover = this.baseMovies + this.production.poster_path
             return cover;
         },
@@ -95,5 +96,7 @@ li:hover span
 {
     visibility: visible;
 }
-
+.title{
+    cursor:pointer;
+}
 </style>

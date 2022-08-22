@@ -3,7 +3,7 @@
   <h1 class="fw-bold">Boolflix</h1>
   <div>
     <input type="text" class="me-3"  placeholder = "cerca il tuo film preferito" v-model="term" @keyup="emitSearch">
-    <button class="btn btn-danger" @click="emitSearch" type="button">Cerca</button>
+    <button class="btn btn-danger fw-bold" @click="emitSearch" type="button">Cerca</button>
   </div>
 </header>
 </template>
